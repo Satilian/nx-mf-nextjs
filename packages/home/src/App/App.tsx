@@ -2,13 +2,13 @@ import React, { Suspense } from "react";
 import { CropperDemo } from "./CropperDemo";
 import cn from "./style.module.css";
 
-const Button = React.lazy(() => import("app1/Button"));
+const Button = React.lazy(() => import("rc/Button"));
 
 export const App = () => {
   return (
     <div className={cn.app}>
       <Suspense fallback={"loading..."}>
-        <Button>+</Button>
+        <Button>button</Button>
       </Suspense>
 
       <div className={cn.cropperDemo}>

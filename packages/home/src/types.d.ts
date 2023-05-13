@@ -3,7 +3,9 @@ declare module "*.module.css" {
   export = styles;
 }
 
-declare module "app1/Cropper" {
+declare module "rc/App";
+
+declare module "rc/Cropper" {
   interface IProps {
     dataUrl: string;
     width?: number;
@@ -16,7 +18,7 @@ declare module "app1/Cropper" {
   export default Cropper;
 }
 
-declare module "app1/Button" {
+declare module "rc/Button" {
   interface IButtonProps
     extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     btnType?: string;

@@ -1,6 +1,5 @@
-import React, { ReactEventHandler, Suspense, useState } from "react";
-
-const Cropper = React.lazy(() => import("rc/Cropper"));
+import { Cropper } from "components/Сropper/Cropper";
+import React, { ReactEventHandler, useState } from "react";
 
 export const CropperDemo = () => {
   const [dataUrl, setDataUrl] = useState("");
@@ -18,9 +17,7 @@ export const CropperDemo = () => {
       <h1>Cropper</h1>
 
       <input type="file" onChange={handleChange} />
-      <Suspense fallback={"loading..."}>
-        {!!dataUrl && <Cropper dataUrl={dataUrl} width={300} height={200} />}
-      </Suspense>
+      {!!dataUrl && <Cropper dataUrl={dataUrl} width={300} height={200} />}
     </div>
   );
 };

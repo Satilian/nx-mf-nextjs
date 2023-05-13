@@ -7,7 +7,6 @@ const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
-const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -43,14 +42,19 @@ const rules = [
   {
     test: /\.(ts|tsx)$/,
     exclude: /node_modules/,
-    use: [{ loader: "ts-loader", options: { transpileOnly: true } }],
+    use: [
+      {
+        loader: "ts-loader",
+        options: { transpileOnly: true },
+      },
+    ],
   },
 ];
 
 const devServer = {
   static: paths.dist,
   compress: true,
-  port: 8002,
+  port: 8001,
   allowedHosts: ["*"],
   historyApiFallback: true,
   proxy: {
@@ -70,13 +74,14 @@ const plugins = [
     chunkFilename: `css/${isDev ? "[hash]." : ""}[name].css`,
   }),
   new ModuleFederationPlugin({
-    name: "home",
-    remotes: {
-      rc: "rc@http://localhost:8001/remoteEntry.js",
+    name: "rc",
+    filename: "remoteEntry.js",
+    exposes: {
+      "./Cropper": "./src/components/Сropper",
+      "./Button": "./src/components/Button",
     },
     shared: { "react": { singleton: true }, "react-dom": { singleton: true } },
   }),
-  new ExternalTemplateRemotesPlugin(),
 ];
 
 config = {
