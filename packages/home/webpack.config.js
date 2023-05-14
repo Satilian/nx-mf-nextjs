@@ -7,7 +7,6 @@ const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
-const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -71,12 +70,15 @@ const plugins = [
   }),
   new ModuleFederationPlugin({
     name: "home",
+    filename: "remoteEntry.js",
     remotes: {
       rc: "rc@http://localhost:8001/remoteEntry.js",
     },
+    exposes: {
+      "./Home": "./src/App",
+    },
     shared: { "react": { singleton: true }, "react-dom": { singleton: true } },
   }),
-  new ExternalTemplateRemotesPlugin(),
 ];
 
 config = {

@@ -7,6 +7,8 @@ const Button = React.lazy(() => import("rc/Button"));
 export const App = () => {
   return (
     <div className={cn.app}>
+      <h1>Home Page</h1>
+
       <Suspense fallback={"loading..."}>
         <Button>button</Button>
       </Suspense>

@@ -35,7 +35,6 @@
     "postcss-preset-env": "^8.3.2",
     "prettier": "^2.8.7",
     "stylelint": "^15.6.1",
-    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^33.0.0",
     "stylelint-prettier": "^3.0.0",
     "tar": "^6.1.14",
@@ -48,8 +47,7 @@
   },
   "stylelint": {
     "extends": [
-      "stylelint-config-standard",
-      "stylelint-config-prettier"
+      "stylelint-config-standard"
     ],
     "plugins": [
       "stylelint-prettier"
