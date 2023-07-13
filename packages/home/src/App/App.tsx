@@ -10,7 +10,7 @@ export const App = () => {
       <h1>Home Page</h1>
 
       <Suspense fallback={"loading..."}>
-        <Button>button</Button>
+        <Button size="big">button</Button>
       </Suspense>
 
       <div className={cn.cropperDemo}>

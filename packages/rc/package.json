@@ -4,7 +4,7 @@
   "description": "react-components app",
   "license": "ISC",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve",
+    "dev": "cross-env NODE_ENV=development webpack serve",
     "build": "webpack"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "autoprefixer": "^10.4.14",
+    "classnames": "^2.3.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
